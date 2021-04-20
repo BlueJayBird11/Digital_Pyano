@@ -56,6 +56,7 @@ stream = p.open(format = p.get_format_from_width(1),channels = 2,rate = BITRATE,
 
 while (True):
     try:
+        """
         x = 0
         WAVEDATA = ''
         while (is_pressed("d")): 
@@ -66,7 +67,9 @@ while (True):
             
         #stream.stop_stream()
         #stream.close()
-        #p.terminate()
+        #p.terminate()"""
+        if (is_pressed("a")):
+            wave.testSound()
     except KeyboardInterrupt:
         break
 
