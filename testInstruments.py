@@ -1,10 +1,10 @@
-import Instrument
+import Instruments
 from keyboard import is_pressed #pip3 install keyboard
 
 import pyaudio
 import math
 
-wave = Instrument.Wave()
+wave = Instruments.Wave()
 
 
 print(wave.getF(11))

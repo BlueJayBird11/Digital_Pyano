@@ -4,8 +4,8 @@ import pygame
 
 pygame.init()
 class Instrument:
-    def __init__(self):
-        pass
+    def __init__(self, name="none"):
+        self.name = name
 
     def testSound(self):
         sound = pygame.mixer.Sound("Notes/Piano/A.wav")
@@ -15,9 +15,17 @@ class Instrument:
         sound = pygame.mixer.Sound(location)
         sound.play()
 
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self, value):
+        self._name = name
+
 class Piano(Instrument):
     def __init__(self):
-        super().__init__()
+        super().__init__("Piano")
 
     def playNote(self, value):
         if (value==0):
@@ -48,7 +56,7 @@ class Piano(Instrument):
 
 class Wave(Instrument):
     def __init__(self):
-        super().__init__()
+        super().__init__("Wave")
         self.f0 = 440.00
 
 
