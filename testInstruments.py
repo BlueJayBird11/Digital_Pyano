@@ -5,71 +5,36 @@ import pyaudio
 import math
 
 wave = Instruments.Wave()
-
-
-print(wave.getF(11))
-
-def playSinWAVE(self, FREQUENCY = 261.63):
-        #generating waves
-        PyAudio = pyaudio.PyAudio     #initialize pyaudio
-        BITRATE = 5000     #number of frames per second/frameset.
-        FREQUENCY = 261.63     #Hz, waves per second, 261.63=C4-note.
-        LENGTH = 0.01    #seconds to play sound
-
-        if FREQUENCY > BITRATE:
-            BITRATE = FREQUENCY+100
-        NUMBEROFFRAMES = int(BITRATE * LENGTH)
-        RESTFRAMES = NUMBEROFFRAMES % BITRATE
-
-        WAVEDATA = ''
-        for x in range(NUMBEROFFRAMES):
-            WAVEDATA = WAVEDATA+chr(int(math.sin(x/((BITRATE/FREQUENCY)/math.pi))*127+128))
-        for x in range(RESTFRAMES):
-            WAVEDATA = WAVEDATA+chr(128)
-        
-        p = PyAudio()
-        stream = p.open(format = p.get_format_from_width(1),channels = 2,rate = BITRATE,output = True)
-        stream.write(WAVEDATA)
-        stream.stop_stream()
-        stream.close()
-        p.terminate()
-
-
-PyAudio = pyaudio.PyAudio     #initialize pyaudio
-BITRATE = 5000     #number of frames per second/frameset.
-FREQUENCY = 261.63     #Hz, waves per second, 261.63=C4-note.
-LENGTH = 0.5    #seconds to play sound
-
-if FREQUENCY > BITRATE:
-    BITRATE = FREQUENCY+100
-NUMBEROFFRAMES = int(BITRATE * LENGTH)
-RESTFRAMES = NUMBEROFFRAMES % BITRATE
-
-WAVEDATA = ''
-for x in range(NUMBEROFFRAMES):
-    WAVEDATA = WAVEDATA+chr(int(math.sin(x/((BITRATE/FREQUENCY)/math.pi))*127+128))
-for x in range(RESTFRAMES):
-    WAVEDATA = WAVEDATA+chr(128)
-        
-p = PyAudio()
-stream = p.open(format = p.get_format_from_width(1),channels = 2,rate = BITRATE,output = True)
-
+piano = Instruments.Piano()
 while (True):
     try:
-        """
-        x = 0
-        WAVEDATA = ''
-        while (is_pressed("d")): 
-            x+=1
-            WAVEDATA = WAVEDATA+chr(int(math.sin(200/((BITRATE/FREQUENCY)/math.pi))*127+128))
-            WAVEDATA = WAVEDATA+chr(128)
-            stream.write(WAVEDATA)
-            
-        #stream.stop_stream()
-        #stream.close()
-        #p.terminate()"""
         if (is_pressed("a")):
             wave.testSound()
+        
+        if (is_pressed("q")):
+            piano.playNote(0)
+        if (is_pressed("w")):
+            piano.playNote(1)
+        if (is_pressed("e")):
+            piano.playNote(2)
+        if (is_pressed("r")):
+            piano.playNote(3)
+        if (is_pressed("t")):
+            piano.playNote(4)
+        if (is_pressed("y")):
+            piano.playNote(5)
+        if (is_pressed("u")):
+            piano.playNote(6)
+        if (is_pressed("i")):
+            piano.playNote(7)
+        if (is_pressed("o")):
+            piano.playNote(8)
+        if (is_pressed("p")):
+            piano.playNote(9)
+        if (is_pressed("[")):
+            piano.playNote(10)
+        if (is_pressed("]")):
+            piano.playNote(11)
     except KeyboardInterrupt:
         break
 
