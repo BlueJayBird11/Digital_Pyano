@@ -7,6 +7,8 @@ class Instrument:
     def __init__(self, name="none"):
         self.name = name
         self.octive = 3
+        self.keys = [0,0,0,0,0,0,0,0,0,0,0,0,0]
+    
 
     @property
     def octive(self):
@@ -42,6 +44,7 @@ class Piano(Instrument):
         rip.getNotes(self.octive)
 
     def playNote(self, value):
+        print("clicked {}".format(value))
         if (value==0):
             self.playSound("Notes/Piano/0.wav")
         if (value==1):

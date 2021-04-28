@@ -10,7 +10,7 @@ while (True):
     try:
         if (is_pressed("a")):
             wave.testSound()
-        
+            
         if (is_pressed("q")):
             piano.playNote(0)
         if (is_pressed("w")):
