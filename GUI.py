@@ -1,5 +1,6 @@
 from tkinter import *
-
+from keyboard import is_pressed #pip3 install keyboard
+from Instruments import *
 mainWindow = Tk()
 mainWindow.title("Digital Piano")
 
@@ -84,6 +85,8 @@ class windows(Canvas):
         l.config(font =("Courier", 14))
         
 
+piano = Piano()
+
 CONSTANT = 60
 WIDTH = 800
 HEIGHT = 480
@@ -91,5 +94,8 @@ mainWindow.geometry("{}x{}".format(WIDTH, HEIGHT))
 s = windows(mainWindow)
 s.lower(mainWindow)
 s.grids()
+
+if (is_pressed("a")):
+    piano.playNote(0)
 
 mainWindow.mainloop()

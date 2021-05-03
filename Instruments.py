@@ -8,7 +8,6 @@ class Instrument:
         self.name = name
         self.octive = 3
         self.keys = [0,0,0,0,0,0,0,0,0,0,0,0,0]
-    
 
     @property
     def octive(self):
@@ -19,6 +18,14 @@ class Instrument:
         if (-1 < value < 7):
             self._octive = value
 
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self, value):
+        self._name = value
+
     def testSound(self):
         sound = pygame.mixer.Sound("Notes/Piano/0.wav")
         sound.play()
@@ -27,13 +34,11 @@ class Instrument:
         sound = pygame.mixer.Sound(location)
         sound.play()
 
-    @property
-    def name(self):
-        return self._name
-    
-    @name.setter
-    def name(self, value):
-        self._name = value
+    def press_down(self, place):
+        self.keys[place] = 1
+
+    def press_up(self, place):
+        self.keys[place] = 0
 
 class Piano(Instrument):
     def __init__(self):
