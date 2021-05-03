@@ -28,14 +28,17 @@ def chordReader(x, y, z, final_list):
     if (organizer.index(z) < organizer.index(x) and organizer.index(z) > organizer.index(y))\
         or organizer.index(z) > organizer.index(x) and organizer.index(z) < organizer.index(y):
         leadingNoteMid = z
-    k = organizer.index(leadingNoteHigh) - organizer.index(leadingNoteLow)   
-
+    k = organizer.index(leadingNoteHigh) - organizer.index(leadingNoteLow)
+##    print(value)
+##    print(k)
+##    print(organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid))
+    
     if (value == 11 or value == 14):
         if ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 4):
             print("{} Major Chord".format(leadingNoteMid))
         elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 3):
             print("{} Major Chord".format(leadingNoteLow))
-        else:
+        elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 5):
             print("{} Major Chord".format(leadingNoteHigh))
             
     elif value == 10 or value == 13:
@@ -43,14 +46,14 @@ def chordReader(x, y, z, final_list):
             print("{} minor chord".format(leadingNoteLow))
         elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 3):
             print("{} Minor Chord".format(leadingNoteMid))
-        else:
+        elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 5):
             print("{} Minor Chord".format(leadingNoteHigh))
             
     elif value == 12:
         if final_list.index(y) == 4:
             print("{} Augmented Chord".format(leadingNoteLow))
-        else:
-            print("{} Diminished Chord".format(leadingNoteMid))
+        elif final_list.index(y) == 3:
+            print("{} Diminished Chord".format(leadingNoteLow))
             
     elif value == 9 or value == 15:
         if ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 3) and\
@@ -59,8 +62,8 @@ def chordReader(x, y, z, final_list):
         elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 3) and\
              ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteLow)) == 9):
             print("{} Diminished Chord".format(leadingNoteMid))
-        else:
-            print("{} Diminished Chord".format(leadingNoteHigh))
+##        else:
+##            print("{} Diminished Chord".format(leadingNoteHigh))
 
 
 # creates an empy list whGich will have the x, y, and z values added to them 
@@ -69,8 +72,11 @@ my_list = []
 # Asks for user input for which key they would like to play and sets them equal to a respective variable
 # Example (x = F), (y = G), (z = D)
 x = input("pick a Key ")
+x = x.upper()
 y = input("pick a Key ")
+y = y.upper()
 z = input("pick a Key ")
+z.upper()
 
 # appends values associated with x, y, and z to the list declared at the beginning
 my_list.append(x)
@@ -81,18 +87,19 @@ my_list.append(z)
 # print(my_list)
 
 # This appends every key that is in an octive
-my_list.append("C")
-my_list.append("C#")
-my_list.append("D")
-my_list.append("D#")
-my_list.append("E")
-my_list.append("F")
-my_list.append("F#")
-my_list.append("G")
-my_list.append("G#")
-my_list.append("A")
-my_list.append("A#")
-my_list.append("B")
+my_list = ['F', 'G', 'D', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+##my_list.append("C")
+##my_list.append("C#")
+##my_list.append("D")
+##my_list.append("D#")
+##my_list.append("E")
+##my_list.append("F")
+##my_list.append("F#")
+##my_list.append("G")
+##my_list.append("G#")
+##my_list.append("A")
+##my_list.append("A#")
+##my_list.append("B")
 
 # Example of what 'my_list' should look like at this point is listed in the line below
 # '['F', 'G', 'D', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']'
@@ -116,9 +123,6 @@ organizer = sorted(conversion)
 # These two lists are simply place holder lists which will be used to organize the list in a manner according to the first input
 final_list = []
 list2 = []
-##organizer = {a,b,}
-##for i in range(0,12):
-##    final_list.append(organizer[(organizer.index(x) + i) % 12])
 
 # This will break the current filled list 'organizer' in to two seperate lists. One list will befilled with the str values which indeces is equal to or greater than
 # the initial x variables index within the list. The other list will be made up of those points which did not meet the given criteria.
