@@ -6,7 +6,7 @@ pygame.init()
 class Instrument:
     def __init__(self, name="none"):
         self.name = name
-        self.octive = 3
+        self.octive = 2
         self.keys = [0,0,0,0,0,0,0,0,0,0,0,0,0]
 
     @property
@@ -45,7 +45,8 @@ class Piano(Instrument):
         super().__init__("Piano")
         rip.getNotes(2)
 
-    def changeOctive(self):
+    def changeOctive(self, value):
+        self.octive = value
         rip.getNotes(self.octive)
 
     def playNote(self, value):
