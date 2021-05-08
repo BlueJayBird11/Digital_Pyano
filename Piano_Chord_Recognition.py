@@ -30,43 +30,43 @@ def bigFunk(a, b, c):
             or organizer.index(z) > organizer.index(x) and organizer.index(z) < organizer.index(y):
             leadingNoteMid = z
         k = organizer.index(leadingNoteHigh) - organizer.index(leadingNoteLow)
-    ##    print(value)
-    ##    print(k)
-    ##    print(organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid))
+    ##    return(value)
+    ##    return(k)
+    ##    return(organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid))
         
         if (value == 11 or value == 14):
             if ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 4):
-                print("{} Major Chord".format(leadingNoteMid))
+                return("{} Major Chord".format(leadingNoteMid))
             elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 3):
-                print("{} Major Chord".format(leadingNoteLow))
+                return("{} Major Chord".format(leadingNoteLow))
             elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 5):
-                print("{} Major Chord".format(leadingNoteHigh))
+                return("{} Major Chord".format(leadingNoteHigh))
                 
         elif value == 10 or value == 13:
             if ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 4):
-                print("{} minor chord".format(leadingNoteLow))
+                return("{} minor chord".format(leadingNoteLow))
             elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 3):
-                print("{} Minor Chord".format(leadingNoteMid))
+                return("{} Minor Chord".format(leadingNoteMid))
             elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 5):
-                print("{} Minor Chord".format(leadingNoteHigh))
+                return("{} Minor Chord".format(leadingNoteHigh))
                 
         elif value == 12:
             if final_list.index(y) == 4:
-                print("{} Augmented Chord".format(leadingNoteLow))
+                return("{} Augmented Chord".format(leadingNoteLow))
             elif final_list.index(y) == 3:
-                print("{} Diminished Chord".format(leadingNoteLow))
+                return("{} Diminished Chord".format(leadingNoteLow))
                 
         elif value == 9 or value == 15:
             if ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 3) and\
                ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteLow)) == 6):
-                print ("{} Diminished Chord".format(leadingNoteLow))
+                return ("{} Diminished Chord".format(leadingNoteLow))
             elif ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteMid)) == 3) and\
                  ((organizer.index(leadingNoteHigh) - organizer.index(leadingNoteLow)) == 9):
-                print("{} Diminished Chord".format(leadingNoteMid))
+                return("{} Diminished Chord".format(leadingNoteMid))
         else:
-            print("not recognized")
+            return("not recognized")
     ##        else:
-    ##            print("{} Diminished Chord".format(leadingNoteHigh))
+    ##            return("{} Diminished Chord".format(leadingNoteHigh))
 
 
     # creates an empy list whGich will have the x, y, and z values added to them 
@@ -90,7 +90,7 @@ def bigFunk(a, b, c):
     my_list.append(z)
 
     # Example of what 'my_list' should look like at this point "['F', 'G', 'D']"
-    # print(my_list)
+    # return(my_list)
 
     # This appends every key that is in an octive
     my_list = ['F', 'G', 'D', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
@@ -109,7 +109,7 @@ def bigFunk(a, b, c):
 
     # Example of what 'my_list' should look like at this point is listed in the line below
     # '['F', 'G', 'D', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']'
-    # print(my_list)
+    # return(my_list)
 
     # At this point we take a set of 'my list', this insures that the variables (x, y, z) will still
     # be present in the set, the excess values will be thrown out as a set can only contain unique values
@@ -117,14 +117,14 @@ def bigFunk(a, b, c):
 
     # Example of what 'conversion' should look like at this point is listed in the line below
     # '{'B', 'A', 'D#', 'G', 'A#', 'E', 'C#', 'F#', 'D', 'F', 'C', 'G#'}'
-    # print(conversion)
+    # return(conversion)
 
     # this simply organizes 'coversion' in alphabetical order, it also simultaneously converts the set back into a list
     organizer = sorted(conversion)
 
     # Example of what 'organizer' should look like at this point is listed in the line below
     # '['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']'
-    # print(organizer)
+    # return(organizer)
 
     # These two lists are simply place holder lists which will be used to organize the list in a manner according to the first input
     final_list = []
@@ -140,11 +140,11 @@ def bigFunk(a, b, c):
 
     # Example of what 'final_list' should look like at this point is listed in the line below
     # '['F', 'F#', 'G', 'G#']'
-    # print(final_list)
+    # return(final_list)
 
     # Example of what 'list2' should look like at this point is listed in the line below
     # '['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E']'
-    # print(list2)
+    # return(list2)
 
     # This algorithm will simply append each value in 'list2' the end of 'final_list'
     for i in range(len(list2)):
@@ -152,5 +152,5 @@ def bigFunk(a, b, c):
 
     # Example of what 'final_list' should look like at this point is listed in the line below
     # ['F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E']
-    # print("Final list {}".format(final_list))
-    chordReader(x, y, z, final_list)
+    # return("Final list {}".format(final_list))
+    return chordReader(x, y, z, final_list)

@@ -50,7 +50,7 @@ class Piano(Instrument):
         rip.getNotes(self.octive)
 
     def playNote(self, value):
-        print("clicked {}".format(value))
+##        print("clicked {}".format(value))
         if (value==0):
             self.playSound("Notes/Piano/0.wav")
         if (value==1):
